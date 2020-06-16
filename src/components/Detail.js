@@ -8,6 +8,11 @@ class Detail extends React.Component
     {
         return ReactDOM.createPortal(
         <div className='popup'>
+            Date Added:
+            {this.props.date}
+            Length of message: 
+            {this.props.length}
+            Message:
            {this.props.info}
            <button onClick = {()=> this.props.deleteMessage(this.props.info, this.setState({state: this.state}))} >delete</button>
         </div>, document.getElementById("root")

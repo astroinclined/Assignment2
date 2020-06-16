@@ -27,7 +27,7 @@ class Message extends React.Component{
     {
         return(
         <div><button onClick={this._onButtonClick} className="messageButton" >
-            {this.state.open ? <Detail key= {this.props.key} info ={this.props.text}/>  : null}
+            {this.state.open ? <Detail key= {this.props.key} date={this.props.date} length ={this.props.length} info ={this.props.text}/>  : null}
             <p>{this.props.text}</p></button></div>
         )
     }
