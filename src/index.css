@@ -82,5 +82,10 @@ p{
 
   display: inline-block;
 }
+h{
+  display: block;
+}
 
 
+
+h + h { margin-top: 10px; }

@@ -28,4 +28,11 @@ export const deleteMessage = key =>
 
   };
 };
+export const clearMessage = payload =>
+{
+  return{
+    type:'CLEAR',
+    payload: payload
+  };
+};
 

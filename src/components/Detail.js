@@ -2,19 +2,42 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import {deleteMessage} from '../actions'
 import { connect } from 'react-redux';
+import axios from 'axios';
 class Detail extends React.Component
 {
+    constructor(props)
+    {
+        super(props);
+        this.buttonClick = this.buttonClick.bind(this);    
+
+    }
+    buttonClick = (message)  =>
+    {
+       
+        var object = 
+            {
+            _id: message,
+            }
+    
+        
+        axios.delete("http://localhost:3000/messages", {data: {_id: message}})
+        .then(response => {
+          this.props.deleteMessage(response.data)
+        })
+
+        
+    }
     render()
     {
         return ReactDOM.createPortal(
         <div className='popup'>
-            Date Added:
-            {this.props.date}
-            Length of message: 
-            {this.props.length}
-            Message:
-           {this.props.info}
-           <button onClick = {()=> this.props.deleteMessage(this.props.info, this.setState({state: this.state}))} >delete</button>
+            <h1>Date Added:
+            {this.props.date}</h1>
+            <h1>Length of message: 
+            {this.props.length}</h1>
+            <h1 >Message:
+           {this.props.info}</h1>
+           <button onClick = {() => {this.buttonClick(this.props._id)}} >delete</button>
         </div>, document.getElementById("root")
         )
         

@@ -13,7 +13,7 @@ const counterReducer = (count = 0, action) => {
     return count;
 };
 
-const messageReducer = (messages = ["nullam nec est vel. Eros aenean in. Mauris imperdiet, sit litora lectus aliquam. Varius phasellus libero nunc, sollicitudin nec in, dignissim suspendisse ut commodo metus sed, omnis consequat semper. Dolor excepturi volutpat dui porttitor vel, bibendum amet ac enim ac vestibulum suspendisse. Natoque pede tortor interdum duis, id in, scelerisque sed inceptos dolor pretium sed aliquam.", "default","Henlo","Yeeeet"], action) =>
+const messageReducer = (messages = [], action) =>
 {
     if(action.type === 'ADD_MESSAGE')
     {
@@ -23,9 +23,15 @@ const messageReducer = (messages = ["nullam nec est vel. Eros aenean in. Mauris 
     else if(action.type === 'DELETE')
     {
         
-        const nu = messages.filter(item =>  item != action.deleteMessage)
+        const nu = messages.filter(item =>  item._id != action.deleteMessage)
        messages  = nu
          return messages;
+    }
+    else if(action.type === 'CLEAR')
+    {
+       messages = [];
+       console.log("hit")
+        return messages;
     }
     return messages;
 };
