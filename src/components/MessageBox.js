@@ -10,7 +10,7 @@ class MessageBox extends React.Component{
     constructor(props){
         super(props);    
         this.clear = this.clear.bind(this);
-        axios.get("http://localhost:3000/messages")
+        axios.get("https://assignmentbackend.herokuapp.com/messages")
         .then(response => {
             
             console.log(response.data)
@@ -35,7 +35,7 @@ class MessageBox extends React.Component{
 
             }
            
-            axios.post("http://localhost:3000/messages", object)
+            axios.post("https://assignmentbackend.herokuapp.com/messages", object)
             .then(response => {
                 this.props.addMessage(response.data)
                  this.setState({ state: this.state })
@@ -47,7 +47,7 @@ class MessageBox extends React.Component{
    clear = () =>
    {
     this.props.yeetMessages();
-    axios.delete("http://localhost:3000/messages/clear")
+    axios.delete("https://assignmentbackend.herokuapp.com/messages/clear")
     
         
        

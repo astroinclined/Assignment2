@@ -20,7 +20,7 @@ class Detail extends React.Component
             }
     
         
-        axios.delete("http://localhost:3000/messages", {data: {_id: message}})
+        axios.delete("https://assignmentbackend.herokuapp.com/messagess", {data: {_id: message}})
         .then(response => {
           this.props.deleteMessage(response.data)
         })
