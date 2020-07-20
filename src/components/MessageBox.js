@@ -1,6 +1,6 @@
 import React from 'react';
 import Message from './Message';
-import { addMessage, clearMessage} from '../actions/index'
+import { addMessage, yeetMessages} from '../actions/index'
 import { connect } from 'react-redux';
 import Detail from './Detail';
 import axios from 'axios'
@@ -46,11 +46,9 @@ class MessageBox extends React.Component{
         }
    clear = () =>
    {
-       axios.delete("http://localhost:3000/messages/clear")
-        .then(response => {
-            this.props.clearMessage();
-            this.setState({ state: this.state })
-        })
+    this.props.yeetMessages();
+    axios.delete("http://localhost:3000/messages/clear")
+    
         
        
    }
@@ -75,4 +73,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, { addMessage,clearMessage })(MessageBox);
+export default connect(mapStateToProps, { addMessage,yeetMessages})(MessageBox);

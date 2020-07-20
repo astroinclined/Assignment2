@@ -15,6 +15,7 @@ const counterReducer = (count = 0, action) => {
 
 const messageReducer = (messages = [], action) =>
 {
+    console.log(action.type)
     if(action.type === 'ADD_MESSAGE')
     {
         messages.push(action.addMessage);
@@ -27,7 +28,7 @@ const messageReducer = (messages = [], action) =>
        messages  = nu
          return messages;
     }
-    else if(action.type === 'CLEAR')
+    else 
     {
        messages = [];
        console.log("hit")
@@ -35,6 +36,7 @@ const messageReducer = (messages = [], action) =>
     }
     return messages;
 };
+
 
 export default combineReducers({
     count: counterReducer,

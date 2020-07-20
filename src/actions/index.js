@@ -28,11 +28,11 @@ export const deleteMessage = key =>
 
   };
 };
-export const clearMessage = payload =>
+export const yeetMessages = payload =>
 {
   return{
-    type:'CLEAR',
-    payload: payload
+    type:'EMPTY',
+    load: payload
   };
 };
 
