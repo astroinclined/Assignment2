@@ -1,13 +1,12 @@
 import React from "react";
 import MessageBox from "./MessageBox";
 
-const app = () => {
+const App = () => {
   return (
     <div id="app">
-      //
       <MessageBox />
     </div>
   );
 };
 
-export default app;
+export default App;
